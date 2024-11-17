@@ -1,0 +1,35 @@
+<div class="container p-4">
+    <div class="row justify-content-center">
+        <h1>Actualizar profesor</h1>
+    </div>
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-4">
+            <form method="POST">
+                <div class="form-group mb-3">
+                    <!-- El campo de texto está prellenado con el nombre actual del profesor -->
+                    <input type="text" class="form-control" name="nombre" value="{{profesor.nombre}}" autofocus />
+                </div>
+                <div class="form-group mb-3">
+                    <input type="text" class="form-control" name="apellido" value="{{profesor.apellido}}" autofocus />
+                </div>
+               <div class="form-group mb-3">
+    <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+    <input type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento" value="{{profesor.fecha_nacimiento}}" required autofocus />
+</div>
+
+                <div class="form-group mb-3">
+                    <input type="text" class="form-control" name="profesion" value="{{profesor.profesion}}" autofocus />
+                </div>
+                <div class="form-group mb-3">
+                    <input type="text" class="form-control" name="genero" value="{{profesor.genero}}" maxlength="1" pattern="[MF]" title="Ingresa 'M' para Masculino o 'F' para Femenino" autofocus />
+                </div>
+                <div class="form-group mb-3">
+                    <input type="email" class="form-control" name="email" value="{{profesor.email}}" autofocus />
+                </div>
+                <div class="form-group mb-3">
+                    <button class="btn btn-success btn-block">Actualizar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="container p-4">
+    <div class="row justify-content-center mb-4">
+        <h1 class="text-center">Asignar Grupo</h1>
+    </div>
+    
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Agregar Estudiante</h5>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="estudiante">Seleccione un estudiante</label>
+                        <select class="form-control" id="estudiante" aria-describedby="estudianteHelp">
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            {{#each lstEstudiantes}}
+                            <option value="{{idestudiante}}">{{nombre}}</option>
+                            {{/each}}
+                        </select>
+                        <small id="estudianteHelp" class="form-text text-muted">Elija un estudiante para agregar al grupo.</small>
+                    </div>
+                    <input type="hidden" id="idgrupo" value="{{idgrupo}}" />
+                    <button onclick="agregarEstudiante()" class="btn btn-success btn-block mt-3">Agregar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 mt-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Estudiantes Asignados</h5>
+                </div>
+                <div class="card-body">
+                    <div id="mensajeExito" class="alert alert-success" style="display: none;">Estudiante agregado exitosamente.</div>
+                    <div id="mensajeError" class="alert alert-danger" style="display: none;">Ocurrió un error al agregar el estudiante.</div>
+                    <form action="/grupos/asignargrupo" method="POST" class="form-ajax">
+                        <table class="table table-bordered table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Estudiante</th>
+                                    <th scope="col">Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="contenido_tabla"></tbody>
+                        </table>
+                        <div id="data" hidden></div>
+                        <button type="submit" class="btn btn-primary btn-block" id="enviarDatos">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
